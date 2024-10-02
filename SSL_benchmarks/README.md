@@ -68,3 +68,27 @@ PHS: Providence Health and Services
 
 ## Biomarker Benchmarks
 ![DINO ViT-small Checkpoints Figure](figures/plot_dinosline.png "DINO ViT-small Checkpoints")
+
+## Benchmark User Submitted Models
+We provide a workflow to benchmark user submitted models. To submit a request follow the instructions below:
+1. Submit [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=YZ3odw9XsEO55GNPRi40uCeVZRc28JFPi1Agm1twtOFUMjVTRThNQVpRN1RNMldBMTNCUVZHVFFQSi4u) with the user's name and a valid email address. Optionally, a user can allow to record the results on our leaderboard by checking the relative checkbox and providing a model name.
+2. The user will receive an email with a link to a secure OneDrive folder.
+3. The user should upload to the provided OneDrive folder the following files:
+   - `checkpoint.pth`: the binary file containing the model weights. Currently there is a 250GB limit per file. This file should be loaded with `torch.load` inside the `modules.py` files.
+   - `modules.py`: python script that contains the model definition. It should also contain a function that returns the pre-trained encoder called `get_encoder`. On our end we will use the following command to load the encoder: `import modules; model=modules.get_encoder()`. The encoder should accept as input a 4-D tensor of shape (B, 3, H, W) where H and W are 224, and B is the batch size. The encoder's output should be a 2-D tensor of shape (B, F) where F is the dimensionality of the feature representation. The following snippet should run without errors.
+```python
+import torch
+import modules
+model = modules.get_encoder()
+x = torch.rand(1, 3, 224, 224)
+o = model(x)
+assert len(x.size()) == 2
+assert x.size(0) == o.size(0)
+```
+   - `requirements.txt` (optional): a list of packages necessary to run the model. In the backend we use the latest monai docker [container](https://hub.docker.com/r/projectmonai/monai). Your code is likely to run as is there. In case other packages are necessary, please include this file.
+4. The user will receive via the provided email the results of the benchmarks as a csv file with the following columns:
+   - Task
+   - Task Type: Detection, Biomarker
+   - Mean AUC
+   - AUC Standard Deviation
+5. After analysis, all data will purged. If the user opted to save the results, they will be posted in the leaderboard.
