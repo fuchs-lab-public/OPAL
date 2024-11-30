@@ -12,7 +12,7 @@ Average AUC (standard deviation) across 20 MCCV splits. Models are ordered in in
 
 ### Detection Tasks
 
-| Task            | h-optimus-0   | Prov-GigaPath   | SP85M         | UNI           | Virchow2      | SP22M         | Phikon-v2     | Virchow       | Phikon        | CTransPath    | tRes50        |
+| Task            | H-optimus-0   | Prov-GigaPath   | SP85M         | UNI           | Virchow2      | SP22M         | Phikon-v2     | Virchow       | Phikon        | CTransPath    | tRes50        |
 |:----------------|:--------------|:----------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|
 | MSHS Bladder    | 0.963 (0.017) | 0.958 (0.016)   | 0.961 (0.015) | 0.954 (0.018) | 0.964 (0.016) | 0.954 (0.016) | 0.960 (0.015) | 0.949 (0.022) | 0.950 (0.017) | 0.950 (0.023) | 0.938 (0.027) |
 | MSHS Breast     | 0.981 (0.007) | 0.979 (0.009)   | 0.981 (0.007) | 0.981 (0.007) | 0.978 (0.008) | 0.980 (0.009) | 0.978 (0.008) | 0.978 (0.006) | 0.977 (0.007) | 0.969 (0.011) | 0.932 (0.013) |
@@ -27,7 +27,7 @@ Average AUC (standard deviation) across 20 MCCV splits. Models are ordered in in
 
 ### Biomarker Tasks
 
-| Task              | h-optimus-0   | Prov-GigaPath   | UNI           | Phikon        | Virchow2      | Phikon-v2     | SP85M         | SP22M         | Virchow       | CTransPath    | tRes50        |
+| Task              | H-optimus-0   | Prov-GigaPath   | UNI           | Phikon        | Virchow2      | Phikon-v2     | SP85M         | SP22M         | Virchow       | CTransPath    | tRes50        |
 |:------------------|:--------------|:----------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|
 | MSHS BCa ER       | 0.973 (0.008) | 0.972 (0.008)   | 0.970 (0.009) | 0.966 (0.009) | 0.970 (0.007) | 0.964 (0.008) | 0.965 (0.010) | 0.967 (0.009) | 0.968 (0.008) | 0.949 (0.009) | 0.912 (0.022) |
 | MSHS BCa HER2     | 0.860 (0.026) | 0.831 (0.027)   | 0.830 (0.024) | 0.812 (0.033) | 0.836 (0.023) | 0.807 (0.029) | 0.802 (0.023) | 0.814 (0.021) | 0.825 (0.026) | 0.803 (0.023) | 0.772 (0.039) |
@@ -49,6 +49,8 @@ Average AUC (standard deviation) across 20 MCCV splits. Models are ordered in in
 
 ### Clinically Relevant Downstream Tasks
 
+#### Detection Tasks
+
 | Task      | Origin | Disease           | Slides | Scanner           |
 | --------- | ------ | -------------     | -----: | ----------------- |
 | Detection | MSHS   | Breast Cancer     | 1,998  | Philips Ultrafast |
@@ -60,6 +62,8 @@ Average AUC (standard deviation) across 20 MCCV splits. Models are ordered in in
 | Detection | MSHS   | Prostate Cancer   | 1,000  | Philips Ultrafast |
 | Detection | MSHS   | Colorectal Cancer |   413  | Philips Ultrafast |
 | Detection | MSHS   | IBD               | 1,448  | Philips Ultrafast |
+
+#### Biomarker Tasks
 
 | Task      | Origin | Biomarker     | Specimen      | Slides | Scanner           |
 | --------- | ------ | ------------- | ------------- | -----: | ----------------- |
@@ -77,17 +81,17 @@ Average AUC (standard deviation) across 20 MCCV splits. Models are ordered in in
 | Biomarker | MSKCC  | NGS TP53      | LUAD          |   998  | Aperio AT2        |
 | Outcome   | MSKCC  | ICI Response  | NSCLC         |   454  | Aperio AT2        |
 
-MSHS: Mount Sinai Health System
-DCIS: Ductal Carcinoma In Situ
-IBD: Inflammatory Bowel Disease
-ER: Estrogen Receptor
-PR: Progesterone Receptor
-IHC: Immunohistochemistry
-FISH: Fluorescence In Situ Hybridization
-SUH: Sahlgrenska University Hospital
-MSKCC: Memorial Sloan Kettering Cancer Center
-LUAD: Lung Adenocarcinoma
-ICI: Immene Checkpoint Inhibitors
+MSHS: Mount Sinai Health System;
+DCIS: Ductal Carcinoma In Situ;
+IBD: Inflammatory Bowel Disease;
+ER: Estrogen Receptor;
+PR: Progesterone Receptor;
+IHC: Immunohistochemistry;
+FISH: Fluorescence In Situ Hybridization;
+SUH: Sahlgrenska University Hospital;
+MSKCC: Memorial Sloan Kettering Cancer Center;
+LUAD: Lung Adenocarcinoma;
+ICI: Immene Checkpoint Inhibitors;
 NSCLC: Non-Small Cell Lung Cancer
 
 ### Public Pathology Foundation Models
@@ -98,16 +102,16 @@ NSCLC: Non-Small Cell Lung Cancer
 | [Phikon]()                                                          |         86 | iBOT      | TCGA          |        43 |          6 |
 | [UNI](https://huggingface.co/MahmoodLab/UNI)                        |        303 | DINOv2    | MGB           |       100 |        100 |
 | [Virchow](https://huggingface.co/paige-ai/Virchow)                  |        631 | DINOv2    | MSKCC         |     2,000 |      1,488 |
-| [SP22M](https://huggingface.co/)                                    |         22 | DINO      | MSHS          |     1,600 |        423 |
-| [SP85M](https://huggingface.co/)                                    |         86 | DINO      | MSHS          |     1,600 |        423 |
+| [SP22M](https://huggingface.co/MountSinaiCompPath/SP22M)            |         22 | DINO      | MSHS          |     1,600 |        423 |
+| [SP85M](https://huggingface.co/MountSinaiCompPath/SP85M)            |         86 | DINO      | MSHS          |     1,600 |        423 |
 | [Prov-GigaPath](https://huggingface.co/prov-gigapath/prov-gigapath) |      1,135 | DINOv2    | PHS           |     1,300 |        171 |
 | [Virchow2](https://huggingface.co/paige-ai/Virchow2)                |        631 | DINOv2    | MSKCC         |     1,700 |      3,100 |
 | [H-optimus-0](https://huggingface.co/bioptimus/H-optimus-0)         |      1,135 | DINOv2    | Proprietary   |      >100 |       >500 |
 | [Phikon-v2](https://huggingface.co/owkin/phikon-v2)                 |        307 | DINOv2    | Multicenter   |       456 |         58 |
 
-MGB: Mass General Brigham
-MSKCC: Memorial Sloan Kettering Cancer Center
-MSHS: Mount Sinai Health System
+MGB: Mass General Brigham;
+MSKCC: Memorial Sloan Kettering Cancer Center;
+MSHS: Mount Sinai Health System;
 PHS: Providence Health and Services
 
 
@@ -117,7 +121,7 @@ We provide a workflow to benchmark user submitted models. To submit a request fo
 2. The user will receive an email with a link to a secure OneDrive folder.
 3. The user should upload to the provided OneDrive folder the following files:
    - Docker container: a Docker (or singularity) containerized environment including the model's weights. Note: currently there is a 250GB limit per file.
-   - `inference.py` script: as script which can run in the container provided. It should accept as input a csv file listing the slides to run inference over. It should output a torch tensor of features per slide. We provide a sample [script]() which can be modified accordingly. Additional instructions can be found [here]().
+   - `inference.py` script: as script which can run in the container provided. It should accept as input a csv file listing the slides to run inference over. It should output a torch tensor of features per slide. We provide a sample [script](https://github.com/fuchs-lab-public/OPAL/blob/main/SSL_benchmarks/automated_external_benchmarking/inference.py) which can be modified accordingly. Additional instructions can be found [here](https://github.com/fuchs-lab-public/OPAL/tree/main/SSL_benchmarks/automated_external_benchmarking).
 4. Within a 2 week timeframe, the user will receive via the provided email the results of the benchmarks as a csv file with the following columns:
    - Task
    - Task Type: Detection, Biomarker
